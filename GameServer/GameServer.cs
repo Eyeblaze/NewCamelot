@@ -379,9 +379,14 @@ namespace DOL.GS
 				if (!InitComponent(StartScriptComponents(), "Script components"))
 					return false;
 
-				//---------------------------------------------------------------
-				//Load all faction managers
-				if (!InitComponent(FactionMgr.Init(), "Faction Managers"))
+                //---------------------------------------------------------------
+                //Load all Artifact managers
+                if (!InitComponent(ArtifactMgr.Init(), "Artifact Manager"))
+                    return false;
+
+                //---------------------------------------------------------------
+                //Load all faction managers
+                if (!InitComponent(FactionMgr.Init(), "Faction Managers"))
 					return false;
 
 				//---------------------------------------------------------------

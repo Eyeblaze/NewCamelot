@@ -10,7 +10,7 @@ namespace DOL.Database
 	public class DbArtifact : DataObject
 	{
 		private String m_artifactID;
-		private String m_encounterID;
+        private String m_encounterID;
 		private String m_questID;
 		private String m_zone;
 		private String m_scholarID;
@@ -56,11 +56,11 @@ namespace DOL.Database
 			}
 		}
 
-		/// <summary>
-		/// The ID for the encounter required to get the quest for
-		/// this artifact.
-		/// </summary>
-		[DataElement(AllowDbNull = false)]
+        /// <summary>
+        /// The ID for the encounter required to get the quest for
+        /// this artifact.
+        /// </summary>
+        [DataElement(AllowDbNull = false)]
 		public string EncounterID
 		{
 			get { return m_encounterID; }

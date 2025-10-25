@@ -13531,6 +13531,25 @@ namespace DOL.GS
         }
         #endregion
 
+        #region Artifacts
+
+        /// <summary>
+        /// Checks if the player's class has at least one version of the artifact specified available to them.
+        /// </summary>
+        /// <param name="artifactID"></param>
+        /// <returns>True when at least one version exists, false when no versions are available.</returns>
+        public bool CanReceiveArtifact(string artifactID)
+        {
+            var possibleVersions = ArtifactMgr.GetArtifactVersions(
+                artifactID,
+                (eCharacterClass)CharacterClass.ID,
+                Realm
+            );
+
+            return possibleVersions != null && possibleVersions.Count > 0;
+        }
+        #endregion
+
         #region Constructors
         /// <summary>
         /// Returns the string representation of the GamePlayer

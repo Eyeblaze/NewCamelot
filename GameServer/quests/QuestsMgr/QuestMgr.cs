@@ -16,15 +16,14 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+// using DOL.GS.Quests.Atlantis;
+using DOL.Database;
+using DOL.GS.Quests.Atlantis;
 using System;
 using System.Collections;
 using System.Collections.Specialized;
-using System.Reflection;
 using System.Linq;
-
-
-// using DOL.GS.Quests.Atlantis;
-using DOL.Database;
+using System.Reflection;
 
 namespace DOL.GS.Quests
 {
@@ -79,15 +78,15 @@ namespace DOL.GS.Quests
                         if (log.IsInfoEnabled)
                             log.Info("Registering quest: " + type.FullName);
                         RegisterQuestType(type);
-						// if (type.IsSubclassOf(typeof(ArtifactQuest)))
-						// {
-						// 	log.Info(String.Format("Initialising quest: {0}", type.FullName));
-						// 	type.InvokeMember("Init",
-						// 		BindingFlags.InvokeMethod,
-						// 		null,
-						// 		null,
-						// 		new object[] { });
-						// }
+                        if (type.IsSubclassOf(typeof(ArtifactQuest)))
+                        {
+                            log.Info(String.Format("Initialising quest: {0}", type.FullName));
+                            type.InvokeMember("Init",
+                                BindingFlags.InvokeMethod,
+                                null,
+                                null,
+                                Array.Empty<object>());
+                        }
                     }
                 }
             }
